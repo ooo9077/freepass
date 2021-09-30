@@ -50,8 +50,9 @@
     <p>请输入姓名</p>
     <input type="text" id="userName" value="自由的门" placeholder="请输入姓名">
     <p>请输入班级</p>
-    <input type="text" id="deptName" value="数学与计算机学院" placeholder="请输入部门">
-
+    <input type="text" id="deptName" value="数学与计算机科学学院" placeholder="请输入部门">
+    <p>请输入标语</p>
+    <input type="text" id="marqueeStr" value="和谐" placeholder="现在默认滚动标语为文明">
     <br>
     <br>
     <button id="send">确定</button>
@@ -59,27 +60,13 @@
 </div>
 </body>
 <script>
-
-                    var startDate = new Date("2021-09-19");
-                   var endDate = new Date();
-                  var a = endDate.getTime();
-                  var b = startDate.getTime();
-
-                  var days = a-b;
-                  var i=parseInt((days/(24*60*60*1000))%12);
-
-                    var arr = ["公正", "法治", "爱国", '敬业', "诚信", "友善","明德", "至诚", "博学", "远志","富强", "民主", "文明", "和谐", "自由", "平等"];
-
-
-                    var marq = document.getElementById("marqueeStr");
-                    marq.innerHTML = arr[i];
-
     $(function() {
         $('#send').click(function() {
             var value1 = $('#userName').val();
             var value2 = $('#deptName').val();
-            var url = "/freepass/form.html?userName="
-             + value1 + "&deptName=" + value2 + "&marqueeStr=" + marq.innerHTML;
+            var value3 = $('#marqueeStr').val();
+            var url = "/form.html?userName="
+             + value1 + "&deptName=" + value2 + "&marqueeStr=" + value3;
             url=encodeURI(url);
             window.location.href=url;
         });
